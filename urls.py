@@ -1,10 +1,8 @@
 from django.conf.urls import url
-from .import views
+from StudentInformationSystem import views
 
-urlpatterns = [
-		
-		url(r'^index/$',views.index,name='index'),
-		url(r'^success/$',views.success,name='success'),
-		url(r'^display/$',views.display,name='display'),
-		
+urlpatterns = [ 
+	url(r'^$',views.index,name = 'index'),
+	url(r'^base$',views.base,name = 'base'),
+	url(r'^display$',views.display,name = 'display')
 ]

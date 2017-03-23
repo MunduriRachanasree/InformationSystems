@@ -1,10 +1,7 @@
 from django.forms import ModelForm
-from TPOv1.models import Drive
-#from django.utils import timezone
-#from django import forms
+from StudentInformationSystem.models import PersonalInfo
 
-class DriveForm(ModelForm):
+class PersonInfoForm(ModelForm):
 	class Meta:
-		model = Drive
-		fields = "__all__"
-
+		model = PersonalInfo
+		fields = '__all__'

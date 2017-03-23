@@ -1,32 +1,28 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect,render_to_response
-from .forms import DriveForm
-from  TPOv1.models import Drive
+from django.shortcuts import render,redirect,render_to_response
+from StudentInformationSystem.forms import PersonInfoForm
+from StudentInformationSystem.models import PersonalInfo
+from django.http import HttpResponse,HttpResponseRedirect
 
 
 def index(request):
+	return HttpResponse("WELCOME TO STUDENT INFORMATION SYSTEM")
+
+
+def base(request):
     if request.method == "POST":
-        form = DriveForm(request.POST) 
-        if form.is_valid():		
-            Drive = form.save(commit = False)
-            Drive.save()            
+        form = PersonInfoForm(request.POST)
+        if form.is_valid():
+            PersonInfo = form.save(commit=False)
+            PersonInfo.save()
             return redirect('success')
-        
     else:
-        form = DriveForm()
-    return render(request, "index.html", {'form': form})
-
-
-def success(request):
-			try:
-				drive_details = Drive.objects.all()
-			except Drive.DoesNotExist:
-				raise Http404("DriveDetails does not exist")
-			return render(request, 'viewDrives.html', {'drive_details': drive_details})
-			
+        form = PersonInfoForm()
+    return render(request, 'StudentInformationSystem/base.html', {'form': form})
+	
 def display(request):
-			try:
-				Student = Drive.objects.all()
-			except Drive.DoesNotExist:
-				raise Http404("Comment does not exist")
-			return render(request, "display.html",{'Student': Student})
+         try:
+             Student = PersonalInfo.objects.all()
+         except PersonalInfo.DoesNotExist:
+             raise Http404("Comment does not exist")
+            
+         return render(request, "StudentInformationSystem/display.html",{'Student': Student})
