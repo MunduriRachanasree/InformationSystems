@@ -27,5 +27,16 @@ class AdditionalInfo(models.Model):
 	details = models.TextField(max_length=30)
 	coCurriculars = models.CharField(max_length=30)
 	hobbies = models.CharField(max_length=30)
-
 	
+class Notifications(models.Model):
+	TPOId = models.CharField(max_length = 30)
+	date =  models.DateTimeField(default=datetime.now, blank=True)
+	status = models.IntegerField(max_length = 2)
+	drivedetails = models.TextField(max_length = 70)
+
+class Suggestion(models.Model):
+	facultyId = models.CharField(max_length=30)
+	studentId = models.ForeignKey(PersonalInfo, on_delete=models.CASCADE)
+	date = models.DateTimeField(max_length=30)
+	status = models.IntegerField(max_length=2)
+	suggestion = models.CharField(max_length=70)
