@@ -32,7 +32,7 @@ def acedamicInfo(request):
 		form = AcedamicInfoForm()
 	return render(request, 'StudentInformationSystem/success.html', {'form': form})
 
-def additionalInfo(request):
+ def additionalInfo(request):
 	if request.method == "POST":
 		form = AdditionalInfoForm(request.POST)
 		if form.is_valid():
