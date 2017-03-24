@@ -43,3 +43,10 @@ def additionalInfo(request):
 		form = AdditionalInfoForm()
 	return render(request, 'StudentInformationSystem/additionalInfo.html', {'form': form})
 
+def display(request):
+         try:
+             Student = PersonalInfo.objects.all()
+         except PersonalInfo.DoesNotExist:
+             raise Http404("Comment does not exist")
+            
+         return render(request, "informationystem/display.html",{'Student': Student})
