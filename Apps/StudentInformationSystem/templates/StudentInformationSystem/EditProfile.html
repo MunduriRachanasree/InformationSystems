@@ -1,0 +1,33 @@
+{% extends 'StudentInformationSystem/basicUI.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<html>
+<form action = '/StudentInformationSystem/edit' method = 'post'>
+{% csrf_token %}
+<p>RollNo &nbsp;&nbsp;:<input type = 'text' value = '{{person.rollNo}}' ></p><br><br>
+<p>First Name &nbsp;&nbsp;:<input type = 'text' value = '{{person.first_name}}' name = 'fname'></p><br><br>
+<p>Last Name &nbsp;&nbsp;:<input type = 'text' value = '{{person.last_name}}' name = 'lname'></p><br><br>
+<p>address &nbsp;&nbsp;:<input type = 'text' value = '{{person.address}}'name = 'address'></p><br><br>
+<p>e-mail &nbsp;&nbsp;:<input type = 'text' value = '{{person.email}}'name = 'email'></p><br><br>
+<p>phone no &nbsp;&nbsp;:<input type = 'text' value = '{{person.phoneNo}}' name = 'phoneno'></p><br><br>
+
+<h3>acedamic Information</h3>
+<p>year of joining &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.yearOfJoining}}' name = 'yoj'></p><br><br>
+<p>aggregate &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.aggregate}}' name = 'aggregate'></p><br><br>
+<p>upper secondary education Institution&nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.upperSecondaryInstitution}}' name = 'ui'></p><br><br>
+<p>upper secondary education Aggrgate &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.upperSecondaryBoard}}' name = 'ub'></p><br><br>
+<p>upper secondary education  Year&nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.upperSecondaryPercentage}}' name = 'up'></p><br><br>
+<p>secondary education Institution &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.SecondaryInstitution}}' name = 'si'></p><br><br>
+<p>secondary education year  &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.SecondaryBoard}}' name = 'sb'></p><br><br>
+<p> secondary education Aggregate &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.SecondaryPercentage}}' name = 'sp'></p><br><br>
+
+<h3>additional Information</h3>
+<p>Co-Acedamic Activities &nbsp;&nbsp;:<input type = 'text' value = '{{additional.coAcademicActivities}}' name = 'caa'></p><br><br>
+<p>Details &nbsp;&nbsp;:<input type = 'text' value = '{{additional.details}}' name = 'details'></p><br><br>
+<p>Co-Curriculars &nbsp;&nbsp;:<input type = 'text' value = '{{additional.coCurriculars}}' name = 'cca'></p><br><br>
+<p>hobbies &nbsp;&nbsp;:<input type = 'text' value = '{{additional.hobbies}}' name = 'hobbies'></p><br><br>
+<button type="submit" class="save btn btn-default">Save</button>
+</form>
+</html>
+{% endblock %}
