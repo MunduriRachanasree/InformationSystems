@@ -12,4 +12,6 @@ urlpatterns = [
 	url(r'^home$',views.notifications,name = 'notifications'),
 	url(r'^resume$',views.resume,name = 'resume'),
 	url(r'^edit$',views.edit,name = ''),
+	url(r'^display$',views.display,name = 'display'),
+	url(r'^index$',views.index,name = 'index'),
 ]
